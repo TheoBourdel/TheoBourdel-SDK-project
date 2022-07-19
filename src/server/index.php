@@ -70,24 +70,24 @@ function insertToken($token)
     insertRow('./data/tokens.db', $token);
 }
 
-function register()
-{
-    ['name' => $name, 'url'=> $url, 'redirect_success' => $redirect] = $_POST;
-    if (findAppBy(['name' => $name])) {
-        http_response_code(409);
-        return;
-    }
-    $app = [
-        'name' => $name,
-        'url' => $url,
-        'redirect_success' => $redirect,
-        'client_id' => bin2hex(random_bytes(16)),
-        'client_secret' => bin2hex(random_bytes(16)),
-    ];
-    insertApp($app);
-    http_response_code(201);
-    echo json_encode($app);
-}
+//function register()
+//{
+//    ['name' => $name, 'url'=> $url, 'redirect_success' => $redirect] = $_POST;
+//    if (findAppBy(['name' => $name])) {
+//        http_response_code(409);
+//        return;
+//    }
+//    $app = [
+//        'name' => $name,
+//        'url' => $url,
+//        'redirect_success' => $redirect,
+//       'client_id' => bin2hex(random_bytes(16)),
+//        'client_secret' => bin2hex(random_bytes(16)),
+//    ];
+//    insertApp($app);
+//    http_response_code(201);
+//    echo json_encode($app);
+//}
 
 function auth()
 {

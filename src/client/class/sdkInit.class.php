@@ -36,6 +36,7 @@ class sdkInit
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ["username"=> $username, "password" => $password] = $_POST;
+            
             $specifParams = [
                 "grant_type" => "password",
                 "username" => $username,
@@ -158,11 +159,12 @@ class sdkInit
                 ];
                 break;
             case "github":
+                
                 $token = $this->getGithubToken(self::GITHUB_TOKEN_URL, self::GITHUB_CLIENT_ID, self::GITHUB_CLIENT_SECRET);
                 $apiURL = self::GITHUB_API_URL;
                 $headers = [
                     "Authorization: token $token",
-                    "User-Agent: benjaminli7"
+                    "User-Agent: theoBourdel"
                 ];
                 break;
             default:
